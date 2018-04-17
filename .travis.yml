@@ -10,6 +10,7 @@ addons:
 
 env:
   - DATABASE_URL=postgres://postgres:@localhost/travisci
+  - DJANGO_SETTINGS_MODULE=holdmybeer.settings.production
 
 install:
   - pip install pipenv
