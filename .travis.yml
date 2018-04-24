@@ -12,6 +12,7 @@ env:
   global:
     - DATABASE_URL=postgres://postgres:@localhost/travisci
     - DJANGO_SETTINGS_MODULE=holdmybeer.settings.production
+    - SECRET_KEY="sekrit!!"
 
 install:
   - pip install pipenv

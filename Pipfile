@@ -14,6 +14,7 @@ python_version = "3.6"
 
 django = "*"
 gunicorn = "*"
+whitenoise = "*"
 django-heroku = "*"
 "psycopg2-binary" = "*"
 
