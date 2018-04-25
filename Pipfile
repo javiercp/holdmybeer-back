@@ -17,6 +17,8 @@ gunicorn = "*"
 whitenoise = "*"
 django-heroku = "*"
 "psycopg2-binary" = "*"
+django-otp = "*"
+qrcode = "*"
 
 [dev-packages]
 
