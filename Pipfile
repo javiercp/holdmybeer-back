@@ -19,6 +19,7 @@ django-heroku = "*"
 "psycopg2-binary" = "*"
 django-otp = "*"
 qrcode = "*"
+raven = "*"
 
 [dev-packages]
 
