@@ -15,7 +15,7 @@ env:
     - SECRET_KEY="sekrit!!"
 
 install:
-  - pip install pipenv
+  - pip install pipenv==11.10.0
   - pipenv install
 
 before_script:
