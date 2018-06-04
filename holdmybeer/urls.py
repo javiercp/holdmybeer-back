@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django_otp.admin import OTPAdminSite
+from django.conf.urls import url, include
 
 admin.site.__class__ = OTPAdminSite
 
 urlpatterns = [
     path('trastienda/', admin.site.urls),
+    url(r'^', include('chigre.urls')),
 ]
