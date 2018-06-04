@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_otp',
     'django_otp.plugins.otp_totp',
+    'rest_framework',
+    'chigre.apps.ChigreConfig',
 ]
 
 SENTRY_DSN = os.environ.get('SENTRY_DSN')
