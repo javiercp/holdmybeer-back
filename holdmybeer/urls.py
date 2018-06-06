@@ -24,4 +24,5 @@ admin.site.__class__ = OTPAdminSite
 urlpatterns = [
     path('trastienda/', admin.site.urls),
     url(r'^', include('chigre.urls')),
+    url(r'^api-auth/', include('rest_framework.urls')),
 ]

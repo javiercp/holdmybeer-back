@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework import permissions
 
 # Create your views here.
 
@@ -12,6 +13,10 @@ class BreweryList(generics.ListCreateAPIView):
     """
     queryset = Brewery.objects.all()
     serializer_class = BrewerySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)
 
 class BreweryDetail(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -19,4 +24,5 @@ class BreweryDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Brewery.objects.all()
     serializer_class = BrewerySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 

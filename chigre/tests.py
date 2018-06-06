@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
 
@@ -9,6 +10,8 @@ from chigre.serializers import BrewerySerializer
 
 class BreweryCreateTest(APITestCase):
     def setUp(self):
+        self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
+        self.client.login(username='john', password='johnpassword')
         self.data = {'name': 'CamposBrew'}
            
     def test_create_brewery(self):
@@ -21,7 +24,9 @@ class BreweryCreateTest(APITestCase):
         
 class BreweryReadTest(APITestCase): 
     def setUp(self):
-        self.brewery = Brewery.objects.create(name="CamposBrew")
+        self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
+        self.client.login(username='john', password='johnpassword')
+        self.brewery = Brewery.objects.create(name='CamposBrew', creator=self.superuser)
           
     def test_read_breweries(self):
         """
@@ -41,7 +46,9 @@ class BreweryReadTest(APITestCase):
         
 class BreweryUpdateTest(APITestCase): 
     def setUp(self):
-        self.brewery = Brewery.objects.create(name="CamposBru")
+        self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
+        self.client.login(username='john', password='johnpassword')
+        self.brewery = Brewery.objects.create(name="CamposBru", creator=self.superuser)
         self.data = BrewerySerializer(self.brewery).data
         self.data.update({'name': 'CamposBrew'})
           
@@ -55,7 +62,9 @@ class BreweryUpdateTest(APITestCase):
 
 class BreweryDeleteTest(APITestCase): 
     def setUp(self):
-        self.brewery = Brewery.objects.create(name="CamposBrew")
+        self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
+        self.client.login(username='john', password='johnpassword')
+        self.brewery = Brewery.objects.create(name="CamposBrew", creator=self.superuser)
           
     def test_delete_brewery(self):
         """
