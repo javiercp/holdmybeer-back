@@ -13,7 +13,8 @@ class BreweryList(generics.ListCreateAPIView):
     """
     queryset = Brewery.objects.all()
     serializer_class = BrewerySerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+        permissions.DjangoModelPermissionsOrAnonReadOnly, )
     
     def perform_create(self, serializer):
         serializer.save(creator=self.request.user)
@@ -24,5 +25,6 @@ class BreweryDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     queryset = Brewery.objects.all()
     serializer_class = BrewerySerializer
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+        permissions.DjangoModelPermissionsOrAnonReadOnly, )
 
