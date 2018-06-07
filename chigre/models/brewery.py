@@ -1,11 +1,8 @@
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.db import models
+from .common import get_sentinel_user
 
 # Create your models here.
-def get_sentinel_user():
-    return get_user_model().objects.get_or_create(username='deleted')[0]
-
 class Brewery(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     creator = models.ForeignKey(
