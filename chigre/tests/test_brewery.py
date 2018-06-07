@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
-
+from rest_framework.reverse import reverse
 from chigre.models import Brewery
 from chigre.serializers import BrewerySerializer
 
@@ -18,7 +18,7 @@ class BreweryCreateTest(APITestCase):
         """
         Ensure we can create a new brewery object.
         """
-        url = '/breweries/'
+        url = reverse('brewery-list')
         response = self.client.post(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         
@@ -32,7 +32,7 @@ class BreweryReadTest(APITestCase):
         """
         Ensure we can read breweries.
         """
-        url = '/breweries/'
+        url = reverse('brewery-list')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
@@ -40,7 +40,7 @@ class BreweryReadTest(APITestCase):
         """
         Ensure we can read a brewery object.
         """
-        url = '/breweries/{0}/'.format(self.brewery.id)
+        url = reverse('brewery-detail', args=[self.brewery.id])
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
@@ -56,7 +56,7 @@ class BreweryUpdateTest(APITestCase):
         """
         Ensure we can update a brewery object.
         """
-        url = '/breweries/{0}/'.format(self.brewery.id)
+        url = reverse('brewery-detail', args=[self.brewery.id])
         response = self.client.put(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
@@ -70,6 +70,6 @@ class BreweryDeleteTest(APITestCase):
         """
         Ensure we can delete a brewery object.
         """
-        url = '/breweries/{0}/'.format(self.brewery.id)
+        url = reverse('brewery-detail', args=[self.brewery.id])
         response = self.client.delete(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

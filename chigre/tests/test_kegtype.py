@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from rest_framework import status
 from rest_framework.test import APITestCase
-
+from rest_framework.reverse import reverse
 from chigre.models import KegType
 from chigre.serializers import KegTypeSerializer
 
@@ -18,7 +18,7 @@ class KegTypeCreateTest(APITestCase):
         """
         Ensure we can create a new keg type object.
         """
-        url = '/kegtypes/'
+        url = reverse('kegtype-list')
         response = self.client.post(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         
@@ -32,7 +32,7 @@ class KegTypeReadTest(APITestCase):
         """
         Ensure we can read keg types.
         """
-        url = '/kegtypes/'
+        url = reverse('kegtype-list')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
@@ -40,7 +40,7 @@ class KegTypeReadTest(APITestCase):
         """
         Ensure we can read a keg type object.
         """
-        url = '/kegtypes/{0}/'.format(self.kegtype.id)
+        url = reverse('kegtype-detail', args=[self.kegtype.id])
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
@@ -56,7 +56,7 @@ class KegTypeUpdateTest(APITestCase):
         """
         Ensure we can update a keg type object.
         """
-        url = '/kegtypes/{0}/'.format(self.kegtype.id)
+        url = reverse('kegtype-detail', args=[self.kegtype.id])
         response = self.client.put(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
@@ -70,6 +70,6 @@ class KegTypeDeleteTest(APITestCase):
         """
         Ensure we can delete a keg type object.
         """
-        url = '/kegtypes/{0}/'.format(self.kegtype.id)
+        url = reverse('kegtype-detail', args=[self.kegtype.id])
         response = self.client.delete(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
