@@ -1,0 +1,42 @@
+[
+  {
+    "model": "chigre.kegtype",
+    "pk": 1,
+    "fields": {
+      "name": "DIN 6647-1 (20l)",
+      "size": 20,
+      "pints": 33,
+      "canyas": 56
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 2,
+    "fields": {
+      "name": "DIN 6647-1 (25l)",
+      "size": 25,
+      "pints": 42,
+      "canyas": 70
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 3,
+    "fields": {
+      "name": "DIN 6647-1 (30l)",
+      "size": 30,
+      "pints": 49,
+      "canyas": 82
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 4,
+    "fields": {
+      "name": "DIN 6647-1 (50l)",
+      "size": 50,
+      "pints": 84,
+      "canyas": 140
+    }
+  }
+]

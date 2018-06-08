@@ -15,9 +15,6 @@ class KegTypeList(generics.ListCreateAPIView):
     serializer_class = KegTypeSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
-    
-    def perform_create(self, serializer):
-        serializer.save(creator=self.request.user)
 
 class KegTypeDetail(generics.RetrieveUpdateDestroyAPIView):
     """

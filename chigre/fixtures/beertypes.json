@@ -1,0 +1,26 @@
+[
+  {
+    "model": "chigre.beertype",
+    "pk": 1,
+    "fields": {
+      "name": "Altbier",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 2,
+    "fields": {
+      "name": "Amber ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 3,
+    "fields": {
+      "name": "Barley wine",
+      "description": ""
+    }
+  }
+]
