@@ -13,16 +13,6 @@
     "model": "chigre.kegtype",
     "pk": 2,
     "fields": {
-      "name": "DIN 6647-1 (25l)",
-      "size": 25,
-      "pints": 42,
-      "canyas": 70
-    }
-  },
-  {
-    "model": "chigre.kegtype",
-    "pk": 3,
-    "fields": {
       "name": "DIN 6647-1 (30l)",
       "size": 30,
       "pints": 49,
@@ -31,12 +21,172 @@
   },
   {
     "model": "chigre.kegtype",
-    "pk": 4,
+    "pk": 3,
     "fields": {
       "name": "DIN 6647-1 (50l)",
       "size": 50,
       "pints": 84,
       "canyas": 140
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 4,
+    "fields": {
+      "name": "DIN 6647-2 (20l)",
+      "size": 20,
+      "pints": 33,
+      "canyas": 56
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 5,
+    "fields": {
+      "name": "DIN 6647-2 (30l)",
+      "size": 30,
+      "pints": 49,
+      "canyas": 82
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 6,
+    "fields": {
+      "name": "DIN 6647-2 (50l)",
+      "size": 50,
+      "pints": 84,
+      "canyas": 140
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 7,
+    "fields": {
+      "name": "DIN-Keg (20l)",
+      "size": 20,
+      "pints": 33,
+      "canyas": 56
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 8,
+    "fields": {
+      "name": "DIN-Keg (30l)",
+      "size": 30,
+      "pints": 49,
+      "canyas": 82
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 9,
+    "fields": {
+      "name": "DIN-Keg (50l)",
+      "size": 50,
+      "pints": 84,
+      "canyas": 140
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 10,
+    "fields": {
+      "name": "Euro-Keg (20l)",
+      "size": 20,
+      "pints": 33,
+      "canyas": 56
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 11,
+    "fields": {
+      "name": "Euro-Keg (25l)",
+      "size": 25,
+      "pints": 42,
+      "canyas": 70
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 12,
+    "fields": {
+      "name": "Euro-Keg (30l)",
+      "size": 30,
+      "pints": 49,
+      "canyas": 82
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 13,
+    "fields": {
+      "name": "Euro-Keg (50l)",
+      "size": 50,
+      "pints": 84,
+      "canyas": 140
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 14,
+    "fields": {
+      "name": "Mini Keg / Bubba",
+      "size": 5,
+      "pints": 8,
+      "canyas": 14
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 15,
+    "fields": {
+      "name": "Eighth Barrel",
+      "size": 14.67,
+      "pints": 24,
+      "canyas": 41
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 16,
+    "fields": {
+      "name": "Soda syrup / Corny Keg / Home Brew",
+      "size": 18.9,
+      "pints": 32,
+      "canyas": 53
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 17,
+    "fields": {
+      "name": "Sixth Barrel / Torpedo Keg / Sixtel / Log",
+      "size": 19.8,
+      "pints": 33,
+      "canyas": 56
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 18,
+    "fields": {
+      "name": "Quarter Barrel / Pony Keg",
+      "size": 29.3,
+      "pints": 49,
+      "canyas": 82
+    }
+  },
+  {
+    "model": "chigre.kegtype",
+    "pk": 19,
+    "fields": {
+      "name": "Half Barrel / Full Keg",
+      "size": 58.66,
+      "pints": 99,
+      "canyas": 165
     }
   }
 ]

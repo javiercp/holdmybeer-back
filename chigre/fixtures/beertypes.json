@@ -22,5 +22,349 @@
       "name": "Barley wine",
       "description": ""
     }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 4,
+    "fields": {
+      "name": "Berliner Weisse",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 5,
+    "fields": {
+      "name": "XXXXX",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 6,
+    "fields": {
+      "name": "Bière de Garde",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 7,
+    "fields": {
+      "name": "Bitter",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 8,
+    "fields": {
+      "name": "Blonde Ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 9,
+    "fields": {
+      "name": "Bock",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 10,
+    "fields": {
+      "name": "Brown Ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 11,
+    "fields": {
+      "name": "California Common/Steam Beer",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 12,
+    "fields": {
+      "name": "Cream Ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 13,
+    "fields": {
+      "name": "Dortmunder Export",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 14,
+    "fields": {
+      "name": "Doppelbock / 'Double' bock",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 15,
+    "fields": {
+      "name": "Dunkel",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 16,
+    "fields": {
+      "name": "Dunkelweizen",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 17,
+    "fields": {
+      "name": "Eisbock",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 18,
+    "fields": {
+      "name": "Flanders red ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 19,
+    "fields": {
+      "name": "Golden/Summer ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 20,
+    "fields": {
+      "name": "Gose",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 21,
+    "fields": {
+      "name": "Gueuze",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 22,
+    "fields": {
+      "name": "Hefeweizen",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 23,
+    "fields": {
+      "name": "Helles",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 24,
+    "fields": {
+      "name": "India pale ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 25,
+    "fields": {
+      "name": "Kölsch",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 26,
+    "fields": {
+      "name": "Lambic",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 27,
+    "fields": {
+      "name": "Light ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 28,
+    "fields": {
+      "name": "Maibock/Helles bock",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 29,
+    "fields": {
+      "name": "Malt liquor",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 30,
+    "fields": {
+      "name": "Mild",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 31,
+    "fields": {
+      "name": "Oktoberfestbier/Märzenbier",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 32,
+    "fields": {
+      "name": "Old ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 33,
+    "fields": {
+      "name": "Oud bruin",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 34,
+    "fields": {
+      "name": "Pale ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 35,
+    "fields": {
+      "name": "Pilsener/Pilsner/Pils",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 36,
+    "fields": {
+      "name": "Porter",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 37,
+    "fields": {
+      "name": "Red ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 38,
+    "fields": {
+      "name": "Roggenbier",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 39,
+    "fields": {
+      "name": "Saison",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 40,
+    "fields": {
+      "name": "Scotch ale",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 41,
+    "fields": {
+      "name": "Stout",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 42,
+    "fields": {
+      "name": "Schwarzbier",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 43,
+    "fields": {
+      "name": "Vienna lager",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 44,
+    "fields": {
+      "name": "Witbier",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 45,
+    "fields": {
+      "name": "Weissbier",
+      "description": ""
+    }
+  },
+  {
+    "model": "chigre.beertype",
+    "pk": 4,
+    "fields": {
+      "name": "Weizenbock",
+      "description": ""
+    }
   }
 ]
