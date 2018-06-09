@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework import permissions
 
 # Create your views here.
@@ -6,6 +6,7 @@ from rest_framework import permissions
 from chigre.models import Beer
 from chigre.serializers import BeerSerializer, BeerSerializerEx
 from rest_framework import generics
+from rest_framework.response import Response
 
 class BeerList(generics.ListCreateAPIView):
     """
@@ -15,6 +16,11 @@ class BeerList(generics.ListCreateAPIView):
     serializer_class = BeerSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
+    
+    def list(self, request):
+        queryset = self.get_queryset()
+        serializer = BeerSerializerEx(queryset, many=True)
+        return Response(serializer.data) 
     
     def perform_create(self, serializer):
         serializer.save(creator=self.request.user)
@@ -28,16 +34,9 @@ class BeerDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
         
-class BeerListEx(generics.ListAPIView):
-    """
-    List all beers.
-    """
-    queryset = Beer.objects.all()
-    serializer_class = BeerSerializerEx
+    def retrieve(self, request, pk=None):
+        queryset = self.get_queryset()
+        beer = get_object_or_404(queryset, pk=pk)
+        serializer = BeerSerializerEx(beer)
+        return Response(serializer.data) 
 
-class BeerDetailEx(generics.RetrieveAPIView):
-    """
-    Retrieve a beer.
-    """
-    queryset = Beer.objects.all()
-    serializer_class = BeerSerializerEx
