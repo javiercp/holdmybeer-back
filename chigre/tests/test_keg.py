@@ -49,7 +49,7 @@ class KegReadTest(APITestCase):
         """
         Ensure we can read a keg object.
         """
-        url = reverse('keg-detail', args=[self.beer.id])
+        url = reverse('keg-detail', args=[self.keg.id])
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
