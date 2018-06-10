@@ -3,3 +3,4 @@ from .brewery import Brewery
 from .kegtype import KegType
 from .beertype import BeerType
 from .beer import Beer
+from .keg import Keg

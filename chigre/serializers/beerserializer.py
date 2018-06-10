@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from chigre.models import Beer,Brewery,BeerType
-
+from chigre.models import Beer
 from chigre.serializers import BrewerySerializer, BeerTypeSerializer
 
 class BeerSerializer(serializers.ModelSerializer):
