@@ -16,5 +16,6 @@ django-otp = "*"
 qrcode = "*"
 raven = "*"
 djangorestframework = "*"
+django-countries = "*"
 
 [dev-packages]

@@ -12,7 +12,7 @@ class BreweryCreateTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
         self.client.login(username='john', password='johnpassword')
-        self.data = {'name': 'CamposBrew'}
+        self.data = {'name': 'CamposBrew', 'country':'ES'}
            
     def test_create_brewery(self):
         """
@@ -26,7 +26,7 @@ class BreweryReadTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
         self.client.login(username='john', password='johnpassword')
-        self.brewery = Brewery.objects.create(name='CamposBrew', creator=self.superuser)
+        self.brewery = Brewery.objects.create(name='CamposBrew', country='ES', creator=self.superuser)
           
     def test_read_breweries(self):
         """
@@ -48,7 +48,7 @@ class BreweryUpdateTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
         self.client.login(username='john', password='johnpassword')
-        self.brewery = Brewery.objects.create(name="CamposBru", creator=self.superuser)
+        self.brewery = Brewery.objects.create(name="CamposBru", country='ES', creator=self.superuser)
         self.data = BrewerySerializer(self.brewery).data
         self.data.update({'name': 'CamposBrew'})
           
@@ -64,7 +64,7 @@ class BreweryDeleteTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
         self.client.login(username='john', password='johnpassword')
-        self.brewery = Brewery.objects.create(name="CamposBrew", creator=self.superuser)
+        self.brewery = Brewery.objects.create(name="CamposBrew", country='ES', creator=self.superuser)
           
     def test_delete_brewery(self):
         """

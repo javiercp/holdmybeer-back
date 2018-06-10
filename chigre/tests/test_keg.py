@@ -13,7 +13,7 @@ class KegCreateTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
         self.client.login(username='john', password='johnpassword')
-        self.brewery = Brewery.objects.create(name='CamposBrew', creator=self.superuser)
+        self.brewery = Brewery.objects.create(name='CamposBrew', country='ES', creator=self.superuser)
         self.beertype = BeerType.objects.create(name='brew')
         self.beer = Beer.objects.create(name='camposbrew', abv=7.6, brewery=self.brewery, beertype=self.beertype, creator=self.superuser)
         self.kegtype = KegType.objects.create(name='Korny', size=18.90, pints=32, canyas=53)       
@@ -31,7 +31,7 @@ class KegReadTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
         self.client.login(username='john', password='johnpassword')
-        self.brewery = Brewery.objects.create(name='CamposBrew', creator=self.superuser)
+        self.brewery = Brewery.objects.create(name='CamposBrew', country='ES', creator=self.superuser)
         self.beertype = BeerType.objects.create(name='brew')
         self.beer = Beer.objects.create(name='camposbrew', abv=7.6, brewery=self.brewery, beertype=self.beertype, creator=self.superuser)
         self.kegtype = KegType.objects.create(name='Korny', size=18.90, pints=32, canyas=53)       
@@ -57,7 +57,7 @@ class KegUpdateTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
         self.client.login(username='john', password='johnpassword')
-        self.brewery = Brewery.objects.create(name='CamposBrew', creator=self.superuser)
+        self.brewery = Brewery.objects.create(name='CamposBrew', country='ES', creator=self.superuser)
         self.beertype = BeerType.objects.create(name='brew')
         self.beer = Beer.objects.create(name='camposbrew', abv=7.6, brewery=self.brewery, beertype=self.beertype, creator=self.superuser)
         self.kegtype = KegType.objects.create(name='Korny', size=18.90, pints=32, canyas=53)       
@@ -77,7 +77,7 @@ class KegDeleteTest(APITestCase):
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
         self.client.login(username='john', password='johnpassword')
-        self.brewery = Brewery.objects.create(name='CamposBrew', creator=self.superuser)
+        self.brewery = Brewery.objects.create(name='CamposBrew', country='ES', creator=self.superuser)
         self.beertype = BeerType.objects.create(name='brew')
         self.beer = Beer.objects.create(name='camposbrew', abv=7.6, brewery=self.brewery, beertype=self.beertype, creator=self.superuser)
         self.kegtype = KegType.objects.create(name='Korny', size=18.90, pints=32, canyas=53)       
