@@ -4,3 +4,4 @@ from .beertypeviews import BeerTypeList, BeerTypeDetail
 from .beerviews import BeerList, BeerDetail
 from .kegviews import KegList, KegDetail
 from .taptypeviews import TapTypeList, TapTypeDetail
+from .tapviews import TapList, TapDetail
