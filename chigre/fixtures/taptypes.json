@@ -1,0 +1,23 @@
+[
+  {
+    "model": "chigre.taptype",
+    "pk": 1,
+    "fields": {
+      "name": "Pressure-dispense bar tap"
+    }
+  },
+  {
+    "model": "chigre.taptype",
+    "pk": 2,
+    "fields": {
+      "name": "Portable keg tap"
+    }
+  },
+  {
+    "model": "chigre.taptype",
+    "pk": 3,
+    "fields": {
+      "name": "Cask beer tap"
+    }
+  }
+]

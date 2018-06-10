@@ -13,6 +13,8 @@ urlpatterns = [
     url(r'^beers/(?P<pk>[0-9]+)/$', views.BeerDetail.as_view(), name='beer-detail'),
     url(r'^kegs/$', views.KegList.as_view(), name='keg-list'),
     url(r'^kegs/(?P<pk>[0-9]+)/$', views.KegDetail.as_view(), name='keg-detail'),
+    url(r'^taptypes/$', views.TapTypeList.as_view(), name='taptype-list'),
+    url(r'^taptypes/(?P<pk>[0-9]+)/$', views.TapTypeDetail.as_view(), name='taptype-detail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

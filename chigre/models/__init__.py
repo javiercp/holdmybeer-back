@@ -4,3 +4,4 @@ from .kegtype import KegType
 from .beertype import BeerType
 from .beer import Beer
 from .keg import Keg
+from .taptype import TapType
