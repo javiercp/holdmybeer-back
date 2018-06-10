@@ -17,7 +17,7 @@ class KegCreateTest(APITestCase):
         self.beertype = BeerType.objects.create(name='brew')
         self.beer = Beer.objects.create(name='camposbrew', abv=7.6, brewery=self.brewery, beertype=self.beertype, creator=self.superuser)
         self.kegtype = KegType.objects.create(name='Korny', size=18.90, pints=32, canyas=53)       
-        self.data = {'pintprice': 4.5, 'canyaprice':2.5, 'beer':self.brewery.id, 'kegtype':self.beertype.id}
+        self.data = {'pintprice': 4.5, 'canyaprice':2.5, 'beer':self.beer.id, 'kegtype':self.beertype.id}
            
     def test_create_keg(self):
         """
