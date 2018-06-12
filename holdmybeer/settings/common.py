@@ -45,3 +45,9 @@ USE_TZ = True
 
 OTP_TOTP_ISSUER = 'Hold my beer'
 
+GRAPHENE = {
+    'SCHEMA': 'chigreQL.schema.schema', # Where your Graphene schema lives
+    'MIDDLEWARE': (
+        'graphene_django.debug.DjangoDebugMiddleware',
+    )
+}

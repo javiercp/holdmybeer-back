@@ -17,5 +17,7 @@ qrcode = "*"
 raven = "*"
 djangorestframework = "*"
 django-countries = "*"
+graphene-django = "*"
+django-filter = "*"
 
 [dev-packages]
