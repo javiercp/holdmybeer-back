@@ -19,6 +19,7 @@ from django.urls import path
 from django_otp.admin import OTPAdminSite
 from django.conf.urls import url, include
 from chigreQL.views import PrivateGraphQLView
+from django.contrib.auth import views as auth_views
 
 admin.site.__class__ = OTPAdminSite
 
@@ -28,3 +29,9 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^graphql', PrivateGraphQLView.as_view(graphiql=True)),
 ]
+
+
+
+
+
+
