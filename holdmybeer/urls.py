@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django_otp.admin import OTPAdminSite
 from django.conf.urls import url, include
-from graphene_django.views import GraphQLView
+from chigreQL.views import PrivateGraphQLView
 
 admin.site.__class__ = OTPAdminSite
 
@@ -26,5 +26,5 @@ urlpatterns = [
     path('trastienda/', admin.site.urls),
     url(r'^', include('chigre.urls')),
     url(r'^api-auth/', include('rest_framework.urls')),
-    url(r'^graphql', GraphQLView.as_view(graphiql=True)),
+    url(r'^graphql', PrivateGraphQLView.as_view(graphiql=True)),
 ]

@@ -71,7 +71,7 @@ class TapNode(DjangoObjectType):
             }
         interfaces = (Node, )
 
-class Query(ObjectType):    
+class Query(ObjectType):
     breweries = Node.Field(BreweryNode)
     all_breweries = DjangoFilterConnectionField(BreweryNode)
     beertypes = Node.Field(BeerTypeNode)
