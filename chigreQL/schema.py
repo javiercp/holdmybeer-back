@@ -10,9 +10,9 @@ class BreweryNode(DjangoObjectType):
     class Meta:
         model = Brewery
         filter_fields = {
-            'name': ['exact','istartswith'],
-            'description': ['exact','istartswith'],
-            'country': ['exact','istartswith'],
+            'name': ['exact','istartswith', 'icontains'],
+            'description': ['istartswith', 'icontains'],
+            'country': ['exact'],
             }
         interfaces = (Node, )
 
