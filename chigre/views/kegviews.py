@@ -17,6 +17,18 @@ class KegList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
     
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)
+
+class KegListEx(generics.ListCreateAPIView):
+    """
+    List all kegs, or create a new keg.
+    """
+    queryset = Keg.objects.all()
+    serializer_class = KegSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+        permissions.DjangoModelPermissionsOrAnonReadOnly, )
+    
     def list(self, request):
         queryset = self.get_queryset()
         serializer = KegSerializerEx(queryset, many=True)
@@ -26,6 +38,15 @@ class KegList(generics.ListCreateAPIView):
         serializer.save(creator=self.request.user)
 
 class KegDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve, update or delete a beer.
+    """
+    queryset = Keg.objects.all()
+    serializer_class = KegSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+        permissions.DjangoModelPermissionsOrAnonReadOnly, )
+
+class KegDetailEx(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve, update or delete a beer.
     """

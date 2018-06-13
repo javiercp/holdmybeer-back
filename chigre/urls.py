@@ -17,6 +17,12 @@ urlpatterns = [
     url(r'^taptypes/(?P<pk>[0-9]+)/$', views.TapTypeDetail.as_view(), name='taptype-detail'),
     url(r'^taps/$', views.TapList.as_view(), name='tap-list'),
     url(r'^taps/(?P<pk>[0-9]+)/$', views.TapDetail.as_view(), name='tap-detail'),
+    url(r'^beers/expanded/$', views.BeerListEx.as_view(), name='beer-list'),
+    url(r'^beers/(?P<pk>[0-9]+)/expanded/$', views.BeerDetailEx.as_view(), name='beer-detail'),
+    url(r'^kegs/expanded/$', views.KegListEx.as_view(), name='keg-list'),
+    url(r'^kegs/(?P<pk>[0-9]+)/expanded/$', views.KegDetailEx.as_view(), name='keg-detail'),
+    url(r'^taps/expanded/$', views.TapListEx.as_view(), name='tap-list'),
+    url(r'^taps/(?P<pk>[0-9]+)/expanded/$', views.TapDetailEx.as_view(), name='tap-detail'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

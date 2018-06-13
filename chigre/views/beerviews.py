@@ -17,6 +17,18 @@ class BeerList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
     
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)
+
+class BeerListEx(generics.ListCreateAPIView):
+    """
+    List all beers, or create a new beer.
+    """
+    queryset = Beer.objects.all()
+    serializer_class = BeerSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+        permissions.DjangoModelPermissionsOrAnonReadOnly, )
+    
     def list(self, request):
         queryset = self.get_queryset()
         serializer = BeerSerializerEx(queryset, many=True)
@@ -40,3 +52,11 @@ class BeerDetail(generics.RetrieveUpdateDestroyAPIView):
         serializer = BeerSerializerEx(beer)
         return Response(serializer.data) 
 
+class BeerDetailEx(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve, update or delete a beer.
+    """
+    queryset = Beer.objects.all()
+    serializer_class = BeerSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+        permissions.DjangoModelPermissionsOrAnonReadOnly, )

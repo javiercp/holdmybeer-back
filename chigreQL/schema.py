@@ -47,6 +47,7 @@ class TapTypeNode(DjangoObjectType):
 class BeerNode(DjangoObjectType):
     class Meta:
         model = Beer
+        exclude_fields = ('created')
         filter_fields = {
             'name': ['exact', 'istartswith', 'icontains'],
             'description': ['istartswith', 'icontains'],
@@ -56,6 +57,7 @@ class BeerNode(DjangoObjectType):
 class KegNode(DjangoObjectType):
     class Meta:
         model = Keg
+        exclude_fields = ('created')
         filter_fields = {
             }
         interfaces = (Node, )
@@ -63,6 +65,7 @@ class KegNode(DjangoObjectType):
 class TapNode(DjangoObjectType):
     class Meta:
         model = Tap
+        exclude_fields = ('created')
         filter_fields = {
             'number': ['exact'],
             }

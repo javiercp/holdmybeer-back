@@ -17,6 +17,18 @@ class TapList(generics.ListCreateAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
     
+    def perform_create(self, serializer):
+        serializer.save(creator=self.request.user)
+
+class TapListEx(generics.ListCreateAPIView):
+    """
+    List all taps, or create a new tap.
+    """
+    queryset = Tap.objects.all()
+    serializer_class = TapSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+        permissions.DjangoModelPermissionsOrAnonReadOnly, )
+    
     def list(self, request):
         queryset = self.get_queryset()
         serializer = TapSerializerEx(queryset, many=True)
@@ -26,6 +38,15 @@ class TapList(generics.ListCreateAPIView):
         serializer.save(creator=self.request.user)
 
 class TapDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    Retrieve, update or delete a tap.
+    """
+    queryset = Tap.objects.all()
+    serializer_class = TapSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,
+        permissions.DjangoModelPermissionsOrAnonReadOnly, )
+
+class TapDetailEx(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve, update or delete a tap.
     """
