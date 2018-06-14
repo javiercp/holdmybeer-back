@@ -45,12 +45,6 @@ class BeerDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BeerSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
-        
-    def retrieve(self, request, pk=None):
-        queryset = self.get_queryset()
-        beer = get_object_or_404(queryset, pk=pk)
-        serializer = BeerSerializerEx(beer)
-        return Response(serializer.data) 
 
 class BeerDetailEx(generics.RetrieveUpdateDestroyAPIView):
     """
@@ -60,3 +54,9 @@ class BeerDetailEx(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BeerSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
+        
+    def retrieve(self, request, pk=None):
+        queryset = self.get_queryset()
+        beer = get_object_or_404(queryset, pk=pk)
+        serializer = BeerSerializerEx(beer)
+        return Response(serializer.data) 
