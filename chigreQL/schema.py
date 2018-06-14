@@ -3,8 +3,10 @@ import graphene
 from graphene import Node, ObjectType
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
+from graphene_django.rest_framework.mutation import SerializerMutation
 
 from chigre.models import Brewery, BeerType, KegType, Beer, Keg, TapType, Tap
+from chigre.serializers import BrewerySerializer
 
 class BreweryNode(DjangoObjectType):
     class Meta:
@@ -86,7 +88,15 @@ class Query(ObjectType):
     all_kegs = DjangoFilterConnectionField(KegNode)
     taps = Node.Field(TapNode)
     all_taps = DjangoFilterConnectionField(TapNode)
-        
+
+class BreweryMutation(SerializerMutation):
+    class Meta:
+        serializer_class = BrewerySerializer
+
+class Mutation(ObjectType):
+    mutate_brewery = BreweryMutation.Field()
+                                  
 schema = graphene.Schema(
     query=Query,
+    mutation=Mutation,
 )
