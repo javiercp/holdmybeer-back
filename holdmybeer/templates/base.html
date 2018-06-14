@@ -7,12 +7,6 @@
 <body>
   <header>
     <h1>Login</h1>
-    {% if user.is_authenticated %}
-      Hi {{ user.username }}!
-      <a href="{% url 'logout' %}">logout</a>
-    {% else %}
-      <a href="{% url 'login' %}">login</a>
-    {% endif %}
   </header>
   <hr>
   <main>
