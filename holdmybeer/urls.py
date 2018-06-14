@@ -26,6 +26,8 @@ admin.site.__class__ = OTPAdminSite
 urlpatterns = [
     path('trastienda/', admin.site.urls),
     url(r'^', include('chigre.urls')),
+    url(r'^accounts/login/$', auth_views.login, {'template_name': 'login.html'},name='login'),
+    url(r'^accounts/logout/$', auth_views.logout, {'template_name': 'logged_out.html'},name='logout'),
     url(r'^api-auth/', include('rest_framework.urls')),
     url(r'^graphql', PrivateGraphQLView.as_view(graphiql=True)),
 ]
