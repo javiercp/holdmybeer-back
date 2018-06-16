@@ -92,8 +92,6 @@ class Query(ObjectType):
 class BreweryMutation(SerializerMutation):
     class Meta:
         serializer_class = BrewerySerializer
-        model_operations = ['create', 'update']
-        lookup_field = 'id'
 
 class Mutation(ObjectType):
     mutate_brewery = BreweryMutation.Field()             
