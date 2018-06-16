@@ -92,11 +92,8 @@ class Query(ObjectType):
 class BreweryMutation(SerializerMutation):
     class Meta:
         serializer_class = BrewerySerializer
-
-class Mutation(ObjectType):
-    mutate_brewery = BreweryMutation.Field()
-    model_operations = ['create', 'update']
-    lookup_field = 'id'
+        model_operations = ['create', 'update']
+        lookup_field = 'id'
 
     @classmethod
     def get_serializer_kwargs(cls, root, info, **input):
@@ -106,7 +103,10 @@ class Mutation(ObjectType):
                 return {'instance': instance, 'data': input, 'partial': True}
             else:
                 raise http.Http404
-        return {'data': input, 'partial': True}                               
+        return {'data': input, 'partial': True} 
+
+class Mutation(ObjectType):
+    mutate_brewery = BreweryMutation.Field()             
                                
 schema = graphene.Schema(
     query=Query,
