@@ -45,6 +45,14 @@ class KegReadTest(APITestCase):
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
+    def test_read_kegs_ex(self):
+        """
+        Ensure we can read kegs with all data.
+        """
+        url = reverse('keg-list-ex')
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+    
     def test_read_keg(self):
         """
         Ensure we can read a keg object.

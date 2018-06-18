@@ -53,6 +53,14 @@ class TapReadTest(APITestCase):
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
+    def test_read_taps_ex(self):
+        """
+        Ensure we can read taps with all data.
+        """
+        url = reverse('tap-list-ex')
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
     def test_read_tap(self):
         """
         Ensure we can read a tap object.
