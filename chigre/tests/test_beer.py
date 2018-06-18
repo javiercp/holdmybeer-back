@@ -26,6 +26,14 @@ class BeerCreateTest(APITestCase):
         response = self.client.post(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         
+    def test_create_beer_ex(self):
+        """
+        Ensure we can create a new beer object in expanded view.
+        """
+        url = reverse('beer-list-ex')
+        response = self.client.post(url, self.data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        
 class BeerReadTest(APITestCase): 
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
