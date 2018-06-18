@@ -1,4 +1,4 @@
-# Hold my beer
+# Hold my beer ![Travis](https://img.shields.io/travis/javiercp/holdmybeer-back.svg) ![GitHub last commit](https://img.shields.io/github/last-commit/javiercp/holdmybeer-back.svg) ![Coveralls github](https://img.shields.io/coveralls/github/javiercp/holdmybeer-back.svg)
 
 Backend for the Hold My Beer app. 
 
