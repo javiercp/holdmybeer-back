@@ -8,7 +8,8 @@ Created with: https://github.com/heroku/heroku-django-template
 
 ## Features
 
-- CI: Tests at https://travis-ci.org/javiercp/holdmybeer-back
+- CI: https://travis-ci.org/javiercp/holdmybeer-back
+- Test coverage: https://coveralls.io/github/javiercp/holdmybeer-back
 - Heroku: Auto-deploy at https://holdmybeer-backend.herokuapp.com
 
 - Production-ready configuration for Static Files, Database Settings, Gunicorn, etc.
