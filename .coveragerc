@@ -22,4 +22,5 @@ exclude_lines =
 
 omit =
     holdmybeer/settings/*
+    holdmybeer/wsgi.py
     */migrations/*
