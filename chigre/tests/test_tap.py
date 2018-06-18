@@ -61,6 +61,14 @@ class TapReadTest(APITestCase):
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         
+    def test_read_tap_ex(self):
+        """
+        Ensure we can read a tap object with all data.
+        """
+        url = reverse('tap-detail-ex', args=[self.tap.id])
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        
 class TapUpdateTest(APITestCase): 
     def setUp(self):
         self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
