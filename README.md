@@ -1,4 +1,4 @@
-# Hold my beer [![Build Status](https://travis-ci.org/javiercp/holdmybeer-back.svg?branch=master)](https://travis-ci.org/javiercp/holdmybeer-back) [![Coverage Status](https://coveralls.io/repos/javiercp/holdmybeer-back/badge.svg?branch=master&service=github)](https://coveralls.io/github/javiercp/holdmybeer-back?branch=master)
+# Hold my beer [![Build Status](https://travis-ci.org/javiercp/holdmybeer-back.svg?branch=master)](https://travis-ci.org/javiercp/holdmybeer-back) [![Coverage Status](https://coveralls.io/repos/github/javiercp/holdmybeer-back/badge.svg?branch=master)](https://coveralls.io/github/javiercp/holdmybeer-back?branch=master)
 
 Backend for the Hold My Beer app. 
 
