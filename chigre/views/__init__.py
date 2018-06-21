@@ -5,3 +5,4 @@ from .beerviews import BeerList, BeerDetail, BeerListEx, BeerDetailEx
 from .kegviews import KegList, KegDetail, KegListEx, KegDetailEx
 from .taptypeviews import TapTypeList, TapTypeDetail
 from .tapviews import TapList, TapDetail, TapListEx, TapDetailEx
+from .rootview import api_root

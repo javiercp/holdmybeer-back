@@ -20,5 +20,6 @@ django-countries = "*"
 graphene-django = ">=2.0"
 django-filter = "*"
 coveralls = "*"
+coreapi = "*"
 
 [dev-packages]

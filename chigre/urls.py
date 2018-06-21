@@ -2,7 +2,12 @@ from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from chigre import views
 
+from rest_framework.schemas import get_schema_view
+schema_view = get_schema_view(title='Hold My Beer API')
+
 urlpatterns = [
+    url(r'^$', views.api_root),
+    url(r'^schema/$', schema_view),
     url(r'^breweries/$', views.BreweryList.as_view(), name='brewery-list'),
     url(r'^breweries/(?P<pk>[0-9]+)/$', views.BreweryDetail.as_view(), name='brewery-detail'),
     url(r'^kegtypes/$', views.KegTypeList.as_view(), name='kegtype-list'),
