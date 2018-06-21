@@ -24,11 +24,15 @@ class TapListEx(generics.ListCreateAPIView):
     """
     List all taps, or create a new tap.
     """
-    queryset = Tap.objects.all()
     serializer_class = TapSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
     
+    def get_queryset(self):
+        queryset = Tap.objects.all()
+        queryset = TapSerializerEx.setup_eager_loading(queryset=queryset)
+        return queryset
+
     def list(self, request):
         queryset = self.get_queryset()
         serializer = TapSerializerEx(queryset, many=True)
@@ -50,11 +54,15 @@ class TapDetailEx(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve, update or delete a tap.
     """
-    queryset = Tap.objects.all()
     serializer_class = TapSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
-        
+
+    def get_queryset(self):
+        queryset = Tap.objects.all()
+        queryset = TapSerializerEx.setup_eager_loading(queryset=queryset)
+        return queryset
+
     def retrieve(self, request, pk=None):
         queryset = self.get_queryset()
         tap = get_object_or_404(queryset, pk=pk)

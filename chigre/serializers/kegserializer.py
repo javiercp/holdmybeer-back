@@ -14,6 +14,12 @@ class KegSerializerEx(serializers.ModelSerializer):
     kegtype = KegTypeSerializer(read_only=True)
     beer = BeerSerializerEx(read_only=True)
   
+    @staticmethod
+    def setup_eager_loading(queryset):
+        """ Perform necessary eager loading of data. """
+        queryset = queryset.prefetch_related('kegtype', 'beer')
+        return queryset
+
     class Meta:
         model = Keg
         fields = ('id', 'pintprice', 'canyaprice', 'fullweight', 'emptyweight', 'actualweight', 'beer', 'kegtype', 'creator')

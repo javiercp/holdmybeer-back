@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from rest_framework import permissions
 
 # Create your views here.
@@ -24,11 +24,15 @@ class BeerListEx(generics.ListCreateAPIView):
     """
     List all beers, or create a new beer.
     """
-    queryset = Beer.objects.all()
     serializer_class = BeerSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
     
+    def get_queryset(self):
+        queryset = Beer.objects.all()
+        queryset = BeerSerializerEx.setup_eager_loading(queryset=queryset) 
+        return queryset
+
     def list(self, request):
         queryset = self.get_queryset()
         serializer = BeerSerializerEx(queryset, many=True)
@@ -50,11 +54,15 @@ class BeerDetailEx(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve, update or delete a beer.
     """
-    queryset = Beer.objects.all()
     serializer_class = BeerSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
-        
+
+    def get_queryset(self):
+        queryset = Beer.objects.all()
+        queryset = BeerSerializerEx.setup_eager_loading(queryset=queryset) 
+        return queryset
+
     def retrieve(self, request, pk=None):
         queryset = self.get_queryset()
         beer = get_object_or_404(queryset, pk=pk)

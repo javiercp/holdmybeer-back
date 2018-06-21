@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from rest_framework import permissions
 
 # Create your views here.
@@ -24,11 +24,15 @@ class KegListEx(generics.ListCreateAPIView):
     """
     List all kegs, or create a new keg.
     """
-    queryset = Keg.objects.all()
     serializer_class = KegSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
     
+    def get_queryset(self):
+        queryset = Keg.objects.all()
+        queryset = KegSerializerEx.setup_eager_loading(queryset=queryset) 
+        return queryset
+
     def list(self, request):
         queryset = self.get_queryset()
         serializer = KegSerializerEx(queryset, many=True)
@@ -50,11 +54,15 @@ class KegDetailEx(generics.RetrieveUpdateDestroyAPIView):
     """
     Retrieve, update or delete a beer.
     """
-    queryset = Keg.objects.all()
     serializer_class = KegSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
-        
+
+    def get_queryset(self):
+        queryset = Keg.objects.all()
+        queryset = KegSerializerEx.setup_eager_loading(queryset=queryset) 
+        return queryset
+
     def retrieve(self, request, pk=None):
         queryset = self.get_queryset()
         keg = get_object_or_404(queryset, pk=pk)
