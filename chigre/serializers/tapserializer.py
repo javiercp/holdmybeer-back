@@ -17,7 +17,8 @@ class TapSerializerEx(serializers.ModelSerializer):
     @staticmethod
     def setup_eager_loading(queryset):
         """ Perform necessary eager loading of data. """
-        queryset = queryset.prefetch_related('taptype', 'keg')
+        queryset = queryset.prefetch_related('taptype', 'keg', 
+            'keg__kegtype', 'keg__beer', 'keg__beer__beertype', 'keg__beer__brewery')
         return queryset
 
     class Meta:
