@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import os
 
 from django.contrib import admin
 from django.urls import path
@@ -32,8 +33,9 @@ urlpatterns = [
     url(r'^graphql', PrivateGraphQLView.as_view(graphiql=True)),
 ]
 
-
-
-
-
+if os.environ.get('ENABLE_DDB', False):
+    import debug_toolbar
+    urlpatterns = [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
 

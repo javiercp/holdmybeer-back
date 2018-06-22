@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'chigreQL.apps.ChigreqlConfig',
     'django_countries',
     'graphene_django',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -40,6 +41,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'holdmybeer.urls'

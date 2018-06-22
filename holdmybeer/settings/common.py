@@ -67,3 +67,11 @@ GRAPHENE = {
         'graphene_django.debug.DjangoDebugMiddleware',
     )
 }
+
+def show_toolbar(request):
+    return os.environ.get('ENABLE_DDB', False)
+
+DEBUG_TOOLBAR_CONFIG = {
+    # ...
+    'SHOW_TOOLBAR_CALLBACK': 'holdmybeer.settings.show_toolbar',
+}

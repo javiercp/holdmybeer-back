@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'chigreQL.apps.ChigreqlConfig',
     'django_countries',
     'graphene_django',
+    'debug_toolbar',
 ]
 
 SENTRY_DSN = os.environ.get('SENTRY_DSN')
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 # Change 'default' database configuration with $DATABASE_URL.

@@ -21,5 +21,6 @@ graphene-django = ">=2.0"
 django-filter = "*"
 coveralls = "*"
 coreapi = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
