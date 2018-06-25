@@ -18,7 +18,7 @@ class BeerSerializerEx(serializers.ModelSerializer):
     def setup_eager_loading(queryset):
         """ Perform necessary eager loading of data. """
         queryset = queryset.select_related('creator')
-        queryset = queryset.prefetch_related('brewery', 'beertype')
+        queryset = queryset.prefetch_related('brewery', 'brewery__creator', 'beertype')
         return queryset
 
     class Meta:

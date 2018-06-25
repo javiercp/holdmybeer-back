@@ -19,7 +19,8 @@ class KegSerializerEx(serializers.ModelSerializer):
         """ Perform necessary eager loading of data. """
         queryset = queryset.select_related('creator')
         queryset = queryset.prefetch_related('kegtype', 'beer', 
-            'beer__brewery', 'beer__beertype')
+            'beer__creator', 'beer__brewery', 'beer__beertype',
+            'beer__brewery__creator')
         return queryset
 
     class Meta:
