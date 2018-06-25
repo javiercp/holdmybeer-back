@@ -7,7 +7,7 @@ class KegSerializer(serializers.ModelSerializer):
   
     class Meta:
         model = Keg
-        fields = ('id', 'pintprice', 'canyaprice', 'fullweight', 'emptyweight', 'actualweight', 'beer', 'kegtype', 'creator')
+        fields = ('id', 'pintprice', 'canyaprice', 'fullweight', 'emptyweight', 'actualweight', 'beer', 'kegtype', 'creator', 'created')
         
 class KegSerializerEx(serializers.ModelSerializer):
     creator = serializers.ReadOnlyField(source='creator.username')
@@ -17,10 +17,11 @@ class KegSerializerEx(serializers.ModelSerializer):
     @staticmethod
     def setup_eager_loading(queryset):
         """ Perform necessary eager loading of data. """
+        queryset = queryset.select_related('creator')
         queryset = queryset.prefetch_related('kegtype', 'beer', 
             'beer__brewery', 'beer__beertype')
         return queryset
 
     class Meta:
         model = Keg
-        fields = ('id', 'pintprice', 'canyaprice', 'fullweight', 'emptyweight', 'actualweight', 'beer', 'kegtype', 'creator')
+        fields = ('id', 'pintprice', 'canyaprice', 'fullweight', 'emptyweight', 'actualweight', 'beer', 'kegtype', 'creator', 'created')

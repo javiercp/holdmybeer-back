@@ -7,7 +7,7 @@ class BeerSerializer(serializers.ModelSerializer):
   
     class Meta:
         model = Beer
-        fields = ('id', 'name', 'description', 'abv', 'webpage', 'logo', 'brewery', 'beertype', 'creator')
+        fields = ('id', 'name', 'description', 'abv', 'webpage', 'logo', 'brewery', 'beertype', 'creator', 'created')
         
 class BeerSerializerEx(serializers.ModelSerializer):
     creator = serializers.ReadOnlyField(source='creator.username')
@@ -17,9 +17,10 @@ class BeerSerializerEx(serializers.ModelSerializer):
     @staticmethod
     def setup_eager_loading(queryset):
         """ Perform necessary eager loading of data. """
+        queryset = queryset.select_related('creator')
         queryset = queryset.prefetch_related('brewery', 'beertype')
         return queryset
 
     class Meta:
         model = Beer
-        fields = ('id', 'name', 'description', 'abv', 'webpage', 'logo', 'brewery', 'beertype', 'creator')
+        fields = ('id', 'name', 'description', 'abv', 'webpage', 'logo', 'brewery', 'beertype', 'creator', 'created')

@@ -7,4 +7,4 @@ class BrewerySerializer(CountryFieldMixin, serializers.ModelSerializer):
     
     class Meta:
         model = Brewery
-        fields = ('id', 'name', 'description', 'country', 'webpage', 'logo', 'creator')
+        fields = ('id', 'name', 'description', 'country', 'webpage', 'logo', 'creator', 'created')

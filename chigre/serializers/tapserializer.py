@@ -7,7 +7,7 @@ class TapSerializer(serializers.ModelSerializer):
   
     class Meta:
         model = Tap
-        fields = ('id', 'number', 'photo', 'keg', 'taptype', 'creator')
+        fields = ('id', 'number', 'photo', 'keg', 'taptype', 'creator', 'created')
         
 class TapSerializerEx(serializers.ModelSerializer):
     creator = serializers.ReadOnlyField(source='creator.username')
@@ -17,10 +17,11 @@ class TapSerializerEx(serializers.ModelSerializer):
     @staticmethod
     def setup_eager_loading(queryset):
         """ Perform necessary eager loading of data. """
+        queryset = queryset.select_related('creator')
         queryset = queryset.prefetch_related('taptype', 'keg', 
             'keg__kegtype', 'keg__beer', 'keg__beer__beertype', 'keg__beer__brewery')
         return queryset
 
     class Meta:
         model = Tap
-        fields = ('id', 'number', 'photo', 'keg', 'taptype', 'creator')
+        fields = ('id', 'number', 'photo', 'keg', 'taptype', 'creator', 'created')
