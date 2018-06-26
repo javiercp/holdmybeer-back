@@ -9,6 +9,7 @@ def api_root(request, format=None):
         'breweries': reverse('brewery-list', request=request, format=format),
         'kegtypes': reverse('kegtype-list', request=request, format=format),
         'beertypes': reverse('beertype-list', request=request, format=format),
+        'taptypes': reverse('taptype-list', request=request, format=format),        
         'beers': reverse('beer-list', request=request, format=format),
         'kegs': reverse('keg-list', request=request, format=format),
         'taps': reverse('tap-list', request=request, format=format),
