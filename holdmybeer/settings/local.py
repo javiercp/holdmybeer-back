@@ -14,7 +14,6 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,6 +45,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+# CORS Headers config
 CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ORIGIN_WHITELIST = (
@@ -53,11 +53,6 @@ CORS_ORIGIN_WHITELIST = (
     '127.0.0.1:8000'
 )
 
-ROOT_URLCONF = 'holdmybeer.urls'
-
-WSGI_APPLICATION = 'holdmybeer.wsgi.application'
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_URL = '/static/'

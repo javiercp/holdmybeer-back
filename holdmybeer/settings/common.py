@@ -4,11 +4,12 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
+ROOT_URLCONF = 'holdmybeer.urls'
+
 WSGI_APPLICATION = 'holdmybeer.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -16,6 +17,7 @@ DATABASES = {
     }
 }
 
+# Application definition
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -34,7 +36,6 @@ TEMPLATES = [
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -52,15 +53,16 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# OTP Config
 OTP_TOTP_ISSUER = 'Hold my beer'
 
+# Graphene Config
 GRAPHENE = {
     'SCHEMA': 'chigreQL.schema.schema', # Where your Graphene schema lives
     'MIDDLEWARE': (
@@ -68,6 +70,7 @@ GRAPHENE = {
     )
 }
 
+# Django Debug Toolbar Config
 def show_toolbar(request):
     if request.user.is_authenticated:
         return request.user.is_superuser and os.environ.get('ENABLE_DDB', False)

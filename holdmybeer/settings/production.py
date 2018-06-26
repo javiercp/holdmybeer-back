@@ -11,9 +11,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 # Application definition
-
-ROOT_URLCONF = 'holdmybeer.urls'
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,16 +33,6 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-SENTRY_DSN = os.environ.get('SENTRY_DSN')
-if SENTRY_DSN:
-    INSTALLED_APPS += (
-        'raven.contrib.django.raven_compat',
-    )
-    RAVEN_CONFIG = {
-        'dsn': SENTRY_DSN,
-        'release': os.environ.get('HEROKU_SLUG_COMMIT', ''),
-    }
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -60,6 +47,18 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+# Sentry.io integration
+SENTRY_DSN = os.environ.get('SENTRY_DSN')
+if SENTRY_DSN:
+    INSTALLED_APPS += (
+        'raven.contrib.django.raven_compat',
+    )
+    RAVEN_CONFIG = {
+        'dsn': SENTRY_DSN,
+        'release': os.environ.get('HEROKU_SLUG_COMMIT', ''),
+    }
+
+# CORS Headers config
 CORS_ORIGIN_ALLOW_ALL = os.environ.get('ENABLE_ALL_CORS', False)
 
 CORS_ORIGIN_WHITELIST = (
@@ -77,7 +76,6 @@ ALLOWED_HOSTS = ['*']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
