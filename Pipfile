@@ -22,5 +22,6 @@ django-filter = "*"
 coveralls = "*"
 coreapi = "*"
 django-debug-toolbar = "*"
+django-cors-headers = "*"
 
 [dev-packages]

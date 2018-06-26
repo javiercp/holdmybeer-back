@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'django_countries',
     'graphene_django',
     'debug_toolbar',
+    'corsheaders',
 ]
 
 SENTRY_DSN = os.environ.get('SENTRY_DSN')
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -57,6 +59,12 @@ MIDDLEWARE = [
     'django_otp.middleware.OTPMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = os.environ.get('ENABLE_ALL_CORS', False)
+
+CORS_ORIGIN_WHITELIST = (
+    'holdmybeer.herokuapp.com',
+)
 
 # Change 'default' database configuration with $DATABASE_URL.
 DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require=True))
