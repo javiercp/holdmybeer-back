@@ -59,7 +59,7 @@ if SENTRY_DSN:
     }
 
 # CORS Headers config
-CORS_ORIGIN_ALLOW_ALL = os.environ.get('ENABLE_ALL_CORS', False)
+CORS_ORIGIN_ALLOW_ALL = os.environ.get('ENABLE_ALL_CORS') == 'TRUE'
 
 CORS_ORIGIN_WHITELIST = (
     'holdmybeer.herokuapp.com',

@@ -73,7 +73,7 @@ GRAPHENE = {
 # Django Debug Toolbar Config
 def show_toolbar(request):
     if request.user.is_authenticated:
-        return request.user.is_superuser and os.environ.get('ENABLE_DDB', False)
+        return request.user.is_superuser and (os.environ.get('ENABLE_DDB') == 'TRUE')
     return False
 
 DEBUG_TOOLBAR_CONFIG = {
