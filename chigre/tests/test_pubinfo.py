@@ -45,4 +45,24 @@ class PubUpdateTest(APITestCase):
         response = self.client.put(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, {'name': 'Chigre', 'description': '', 'address': '', 'webpage': '', 'logo': ''})
+     
+class PubDeleteTest(APITestCase): 
+    def setUp(self):
+        self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
+        self.client.login(username='john', password='johnpassword')
 
+        self.pubinfo = Pub.load()
+        self.pubinfo.name = 'Chigre'
+        self.pubinfo.save()
+
+        self.pubinfo.delete()
+                  
+    def test_read_beertype(self):
+        """
+        Ensure we can read a beer type object.
+        """
+        url = reverse('pub-info')
+        response = self.client.get(url, format='json')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, {'name': 'Chigre', 'description': '', 'address': '', 'webpage': '', 'logo': ''})
+        

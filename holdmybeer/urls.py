@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^graphql', PrivateGraphQLView.as_view(graphiql=True)),
 ]
 
-if os.environ.get('ENABLE_DDB', False):
+if os.environ.get('ENABLE_DDB')=='TRUE':
     import debug_toolbar
     urlpatterns = [
         url(r'^__debug__/', include(debug_toolbar.urls)),
