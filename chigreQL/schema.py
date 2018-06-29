@@ -5,13 +5,12 @@ from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.rest_framework.mutation import SerializerMutation
 
-from chigre.models import Brewery, BeerType, KegType, Beer, Keg, TapType, Tap
+from chigre.models import Brewery, BeerType, KegType, Beer, Keg, TapType, Tap, Pub
 from chigre.serializers import BrewerySerializer
 
 class BreweryNode(DjangoObjectType):
     class Meta:
         model = Brewery
-        exclude_fields = ('created')
         filter_fields = {
             'name': ['exact', 'istartswith', 'icontains'],
             'description': ['istartswith', 'icontains'],
@@ -22,7 +21,6 @@ class BreweryNode(DjangoObjectType):
 class BeerTypeNode(DjangoObjectType):
     class Meta:
         model = BeerType
-        exclude_fields = ('created')
         filter_fields = {
             'name': ['exact', 'istartswith', 'icontains'],
             'description': ['istartswith', 'icontains'],
@@ -49,7 +47,6 @@ class TapTypeNode(DjangoObjectType):
 class BeerNode(DjangoObjectType):
     class Meta:
         model = Beer
-        exclude_fields = ('created')
         filter_fields = {
             'name': ['exact', 'istartswith', 'icontains'],
             'description': ['istartswith', 'icontains'],
@@ -59,7 +56,6 @@ class BeerNode(DjangoObjectType):
 class KegNode(DjangoObjectType):
     class Meta:
         model = Keg
-        exclude_fields = ('created')
         filter_fields = {
             }
         interfaces = (Node, )
@@ -67,13 +63,18 @@ class KegNode(DjangoObjectType):
 class TapNode(DjangoObjectType):
     class Meta:
         model = Tap
-        exclude_fields = ('created')
         filter_fields = {
             'number': ['exact'],
             }
         interfaces = (Node, )
 
+class PubNode(DjangoObjectType):
+    class Meta:
+        model = Pub
+        exclude_fields = ('id')
+
 class Query(ObjectType):
+    pub_info = graphene.Field(PubNode)
     breweries = Node.Field(BreweryNode)
     all_breweries = DjangoFilterConnectionField(BreweryNode)
     beertypes = Node.Field(BeerTypeNode)
@@ -88,6 +89,9 @@ class Query(ObjectType):
     all_kegs = DjangoFilterConnectionField(KegNode)
     taps = Node.Field(TapNode)
     all_taps = DjangoFilterConnectionField(TapNode)
+
+    def resolve_pub_info(self, info, **kwargs):
+        return Pub.load()
 
 class BreweryMutation(SerializerMutation):
     class Meta:

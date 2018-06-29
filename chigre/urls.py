@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^kegs/(?P<pk>[0-9]+)/expanded/$', views.KegDetailEx.as_view(), name='keg-detail-ex'),
     url(r'^taps/expanded/$', views.TapListEx.as_view(), name='tap-list-ex'),
     url(r'^taps/(?P<pk>[0-9]+)/expanded/$', views.TapDetailEx.as_view(), name='tap-detail-ex'),
+    url(r'^pub/$', views.PubDetail.as_view(), name='pub-info'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

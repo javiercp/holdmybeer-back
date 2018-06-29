@@ -16,4 +16,5 @@ def api_root(request, format=None):
         'beers-expanded': reverse('beer-list-ex', request=request, format=format),
         'kegs-expanded': reverse('keg-list-ex', request=request, format=format),
         'taps-expanded': reverse('tap-list-ex', request=request, format=format),
+        'pub-info': reverse('pub-info', request=request, format=format),
     })
