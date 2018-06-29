@@ -2,7 +2,7 @@ import graphene
 
 from django.test import TestCase
 from django.contrib.auth.models import User
-from chigre.models import Brewery, BeerType, KegType, TapType, Beer, Keg, Tap
+from chigre.models import Brewery, BeerType, KegType, TapType, Beer, Keg, Tap, Pub
 from chigreQL.schema import Query
 
 # Create your tests here.
@@ -261,6 +261,33 @@ class TapReadTest(TestCase):
                         }
                     }
                 ]
+            }
+        }
+        test_query(query, expected)
+
+class PubReadTest(TestCase): 
+    def setUp(self):
+        self.superuser = User.objects.create_superuser('john', 'john@snow.com', 'johnpassword')
+        self.client.login(username='john', password='johnpassword')
+
+        self.pubinfo = Pub.load()
+        self.pubinfo.name = 'Chigre'
+        self.pubinfo.save()
+                  
+    def test_read_beertype(self):
+        """
+        Ensure we can read the pub info.
+        """
+        query = '''
+        {
+            pubInfo {
+                name
+            }
+        }
+        '''
+        expected = {
+            "pubInfo": {
+                "name": "Chigre"
             }
         }
         test_query(query, expected)

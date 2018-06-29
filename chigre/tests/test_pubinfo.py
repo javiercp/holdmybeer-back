@@ -18,7 +18,7 @@ class PubReadTest(APITestCase):
                   
     def test_read_beertype(self):
         """
-        Ensure we can read a beer type object.
+        Ensure we can read the pub info object.
         """
         url = reverse('pub-info')
         response = self.client.get(url, format='json')
@@ -39,7 +39,7 @@ class PubUpdateTest(APITestCase):
           
     def test_update_beertype(self):
         """
-        Ensure we can update a beer type object.
+        Ensure we can update the pub info object.
         """
         url = reverse('pub-info')
         response = self.client.put(url, self.data, format='json')
@@ -59,7 +59,7 @@ class PubDeleteTest(APITestCase):
                   
     def test_read_beertype(self):
         """
-        Ensure we can read a beer type object.
+        Ensure we can read the pub info object.
         """
         url = reverse('pub-info')
         response = self.client.get(url, format='json')
