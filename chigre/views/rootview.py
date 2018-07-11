@@ -1,9 +1,10 @@
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, schema
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
 
 @api_view(['GET'])
+@schema(None)
 def api_root(request, format=None):
     return Response({
         'breweries': reverse('brewery-list', request=request, format=format),
