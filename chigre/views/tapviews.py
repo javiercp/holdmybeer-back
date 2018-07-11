@@ -8,6 +8,9 @@ from chigre.serializers import TapSerializer, TapSerializerEx
 from rest_framework import generics
 from rest_framework.response import Response
 
+from rest_framework.schemas import ManualSchema
+import coreapi, coreschema
+
 class TapList(generics.ListCreateAPIView):
     """
     List all taps, or create a new tap.
@@ -57,6 +60,18 @@ class TapDetailEx(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TapSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
+
+    schema = ManualSchema(
+        description="Retrieve, update or delete a tap.",
+        fields = [
+        coreapi.Field(
+            "id",
+            required = True,
+            location = "path",
+            description = "A unique integer value identifying this tap.",
+            schema=coreschema.Integer()
+        ),
+    ])
 
     def get_queryset(self):
         queryset = Tap.objects.all()

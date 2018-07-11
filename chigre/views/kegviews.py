@@ -8,6 +8,9 @@ from chigre.serializers import KegSerializer, KegSerializerEx
 from rest_framework import generics
 from rest_framework.response import Response
 
+from rest_framework.schemas import ManualSchema
+import coreapi, coreschema
+
 class KegList(generics.ListCreateAPIView):
     """
     List all kegs, or create a new keg.
@@ -43,7 +46,7 @@ class KegListEx(generics.ListCreateAPIView):
 
 class KegDetail(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve, update or delete a beer.
+    Retrieve, update or delete a keg.
     """
     queryset = Keg.objects.all()
     serializer_class = KegSerializer
@@ -52,11 +55,23 @@ class KegDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class KegDetailEx(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve, update or delete a beer.
+    Retrieve, update or delete a keg.
     """
     serializer_class = KegSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
+
+    schema = ManualSchema(
+        description="Retrieve, update or delete a keg.",
+        fields = [
+        coreapi.Field(
+            "id",
+            required = True,
+            location = "path",
+            description = "A unique integer value identifying this keg.",
+            schema=coreschema.Integer()
+        ),
+    ])
 
     def get_queryset(self):
         queryset = Keg.objects.all()

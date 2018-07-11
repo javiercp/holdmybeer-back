@@ -8,6 +8,9 @@ from chigre.serializers import BeerSerializer, BeerSerializerEx
 from rest_framework import generics
 from rest_framework.response import Response
 
+from rest_framework.schemas import ManualSchema
+import coreapi, coreschema
+
 class BeerList(generics.ListCreateAPIView):
     """
     List all beers, or create a new beer.
@@ -57,6 +60,18 @@ class BeerDetailEx(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BeerSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
+
+    schema = ManualSchema(
+        description="Retrieve, update or delete a beer.",
+        fields = [
+        coreapi.Field(
+            "id",
+            required = True,
+            location = "path",
+            description = "A unique integer value identifying this beer.",
+            schema=coreschema.Integer()
+        ),
+    ])
 
     def get_queryset(self):
         queryset = Beer.objects.all()
