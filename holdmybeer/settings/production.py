@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'django_otp',
     'django_otp.plugins.otp_totp',
     'rest_framework',
+    'rest_framework_swagger',
     'chigre.apps.ChigreConfig',
     'chigreQL.apps.ChigreqlConfig',
     'django_countries',

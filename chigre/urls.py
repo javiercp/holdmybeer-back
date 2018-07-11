@@ -2,8 +2,8 @@ from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from chigre import views
 
-from rest_framework.schemas import get_schema_view
-schema_view = get_schema_view(title='Hold My Beer API')
+from rest_framework_swagger.views import get_swagger_view
+schema_view = get_swagger_view(title='HoldMyBeer API')
 
 urlpatterns = [
     url(r'^$', views.api_root),

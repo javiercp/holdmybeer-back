@@ -23,5 +23,6 @@ coveralls = "*"
 coreapi = "*"
 django-debug-toolbar = "*"
 django-cors-headers = "*"
+django-rest-swagger = "*"
 
 [dev-packages]

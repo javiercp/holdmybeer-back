@@ -52,7 +52,7 @@ class BeerDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class BeerDetailEx(generics.RetrieveUpdateDestroyAPIView):
     """
-    Retrieve, update or delete a beer.
+    Retrieve, update or delete a beer with details.
     """
     serializer_class = BeerSerializer
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
