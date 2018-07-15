@@ -60,7 +60,7 @@ if SENTRY_DSN:
     }
 
 # CORS Headers config
-CORS_ORIGIN_ALLOW_ALL = os.environ.get('ENABLE_ALL_CORS') == 'TRUE'
+CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = (
     'holdmybeer.herokuapp.com',
@@ -73,7 +73,7 @@ DATABASES['default'].update(dj_database_url.config(conn_max_age=500, ssl_require
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['holdmybeer.herokuapp.com']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 # Remove browsable api in prod
 REST_FRAMEWORK = {
