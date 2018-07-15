@@ -76,7 +76,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['.herokuapp.com']
 
 # Remove browsable api in prod ENABLE_BROWSABLE_API
-if os.environ.get('ENABLE_BROWSABLE_API') == 'TRUE':
+if os.environ.get('ENABLE_BROWSABLE_API') != 'TRUE':
     REST_FRAMEWORK = {
         'DEFAULT_RENDERER_CLASSES': (
             'rest_framework.renderers.JSONRenderer',
