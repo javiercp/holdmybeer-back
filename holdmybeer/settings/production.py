@@ -60,7 +60,7 @@ if SENTRY_DSN:
     }
 
 # CORS Headers config
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = os.environ.get('ENABLE_ALL_CORS') == 'TRUE'
 
 CORS_ORIGIN_WHITELIST = (
     'holdmybeer.herokuapp.com',
@@ -75,12 +75,13 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['.herokuapp.com']
 
-# Remove browsable api in prod
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    )
-}
+# Remove browsable api in prod ENABLE_BROWSABLE_API
+if os.environ.get('ENABLE_BROWSABLE_API') == 'TRUE':
+    REST_FRAMEWORK = {
+        'DEFAULT_RENDERER_CLASSES': (
+            'rest_framework.renderers.JSONRenderer',
+        )
+    }
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
