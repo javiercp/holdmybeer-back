@@ -14,7 +14,7 @@ class PubReadTest(APITestCase):
 
         self.pubinfo = Pub.load()
         self.pubinfo.name = 'Chigre'
-        self.pubinfo.updater=self.superuser
+        self.pubinfo.updater = self.superuser
         self.pubinfo.save()
                   
     def test_read_beertype(self):
@@ -33,7 +33,7 @@ class PubUpdateTest(APITestCase):
 
         self.pubinfo = Pub.load()
         self.pubinfo.name = 'Chigrin'
-        self.pubinfo.updater=self.superuser
+        self.pubinfo.updater = self.superuser
         self.pubinfo.save()
 
         self.data = PubSerializer(self.pubinfo).data
@@ -55,7 +55,7 @@ class PubDeleteTest(APITestCase):
 
         self.pubinfo = Pub.load()
         self.pubinfo.name = 'Chigre'
-        self.pubinfo.updater=self.superuser
+        self.pubinfo.updater = self.superuser
         self.pubinfo.save()
 
         self.pubinfo.delete()
