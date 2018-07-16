@@ -18,6 +18,9 @@ class PubDetail(generics.RetrieveUpdateAPIView):
     permission_classes = (permissions.IsAuthenticatedOrReadOnly,
         permissions.DjangoModelPermissionsOrAnonReadOnly, )
 
+    def perform_update(self, serializer):
+        serializer.save(updater=self.request.user)
+
     def get_object(self):
         savedpub = Pub.load()
         return savedpub
