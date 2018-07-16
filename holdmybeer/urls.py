@@ -21,6 +21,7 @@ from django_otp.admin import OTPAdminSite
 from django.conf.urls import url, include
 from chigreQL.views import PrivateGraphQLView
 from django.contrib.auth import views as auth_views
+from rest_framework_jwt.views import obtain_jwt_token
 
 admin.site.__class__ = OTPAdminSite
 
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^accounts/login/$', auth_views.login, {'template_name': 'login.html'},name='login'),
     url(r'^accounts/logout/$', auth_views.logout, {'template_name': 'logged_out.html'},name='logout'),
     url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^api-token-auth/', obtain_jwt_token),
     url(r'^graphql', PrivateGraphQLView.as_view(graphiql=True)),
 ]
 

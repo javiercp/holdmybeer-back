@@ -33,3 +33,5 @@ Created with: https://github.com/heroku/heroku-django-template
 - [Graphene](http://docs.graphene-python.org/)
 - [GrapheneDjango](http://docs.graphene-python.org/projects/django)
 - [django-filter](http://django-filter.readthedocs.io/)
+- [django-swagger](https://django-rest-swagger.readthedocs.io/)
+- [django-cors-headers](https://github.com/ottoyiu/django-cors-headers)

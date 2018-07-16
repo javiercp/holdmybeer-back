@@ -92,15 +92,7 @@ class Query(ObjectType):
 
     def resolve_pub_info(self, info, **kwargs):
         return Pub.load()
-
-class BreweryMutation(SerializerMutation):
-    class Meta:
-        serializer_class = BrewerySerializer
-
-class Mutation(ObjectType):
-    mutate_brewery = BreweryMutation.Field()             
                                
 schema = graphene.Schema(
     query=Query,
-    mutation=Mutation,
 )
