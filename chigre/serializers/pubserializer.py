@@ -5,5 +5,5 @@ class PubSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Pub
-        fields = ('name', 'description', 'address', 'webpage', 'logo')
+        fields = ('name', 'motto', 'description', 'address', 'lat', 'lng', 'telephone', 'logo')
     

@@ -23,7 +23,7 @@ class PubReadTest(APITestCase):
         url = reverse('pub-info')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, {'name': 'Chigre', 'description': '', 'address': '', 'webpage': '', 'logo': ''})
+        self.assertEqual(response.data, {'name': 'Chigre', 'motto': '', 'description': '', 'address': '', 'lat': None, 'lng': None, 'telephone': '', 'logo': ''})
         
 class PubUpdateTest(APITestCase): 
     def setUp(self):
@@ -44,7 +44,7 @@ class PubUpdateTest(APITestCase):
         url = reverse('pub-info')
         response = self.client.put(url, self.data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, {'name': 'Chigre', 'description': '', 'address': '', 'webpage': '', 'logo': ''})
+        self.assertEqual(response.data, {'name': 'Chigre', 'motto': '', 'description': '', 'address': '', 'lat': None, 'lng': None, 'telephone': '', 'logo': ''})
      
 class PubDeleteTest(APITestCase): 
     def setUp(self):
@@ -64,5 +64,5 @@ class PubDeleteTest(APITestCase):
         url = reverse('pub-info')
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, {'name': 'Chigre', 'description': '', 'address': '', 'webpage': '', 'logo': ''})
+        self.assertEqual(response.data, {'name': 'Chigre', 'motto': '', 'description': '', 'address': '', 'lat': None, 'lng': None, 'telephone': '', 'logo': ''})
         
