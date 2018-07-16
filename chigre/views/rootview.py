@@ -18,4 +18,5 @@ def api_root(request, format=None):
         'kegs-expanded': reverse('keg-list-ex', request=request, format=format),
         'taps-expanded': reverse('tap-list-ex', request=request, format=format),
         'pub-info': reverse('pub-info', request=request, format=format),
+        'pub-gallery': reverse('gallery-list', request=request, format=format),
     })

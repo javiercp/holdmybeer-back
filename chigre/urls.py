@@ -29,6 +29,8 @@ urlpatterns = [
     url(r'^taps/expanded/$', views.TapListEx.as_view(), name='tap-list-ex'),
     url(r'^taps/(?P<pk>[0-9]+)/expanded/$', views.TapDetailEx.as_view(), name='tap-detail-ex'),
     url(r'^pub/$', views.PubDetail.as_view(), name='pub-info'),
+    url(r'^photos/$', views.PubGalleryList.as_view(), name='gallery-list'),
+    url(r'^photos/(?P<pk>[0-9]+)/$', views.PubGalleryDetail.as_view(), name='gallery-detail'),
     url(r'^secrets/$', views.SecretsDetail.as_view(), name='secrets-info'),
 ]
 

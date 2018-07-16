@@ -7,3 +7,4 @@ from .taptypeserializer import TapTypeSerializer
 from .tapserializer import TapSerializer, TapSerializerEx
 from .pubserializer import PubSerializer
 from .secretsserializer import SecretsSerializer
+from .pubgalleryserializer import PubGallerySerializer
