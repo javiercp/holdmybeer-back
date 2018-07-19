@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'graphene_django',
     'debug_toolbar',
     'corsheaders',
-    'rest_framework_jwt',
 ]
 
 MIDDLEWARE = [

@@ -24,6 +24,6 @@ coreapi = "*"
 django-debug-toolbar = "*"
 django-cors-headers = "*"
 django-rest-swagger = "*"
-djangorestframework-jwt = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
