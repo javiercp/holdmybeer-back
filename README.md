@@ -35,3 +35,4 @@ Created with: https://github.com/heroku/heroku-django-template
 - [django-filter](http://django-filter.readthedocs.io/)
 - [django-swagger](https://django-rest-swagger.readthedocs.io/)
 - [django-cors-headers](https://github.com/ottoyiu/django-cors-headers)
+- [django-rest-framework-simplejwt](https://github.com/davesque/django-rest-framework-simplejwt)
