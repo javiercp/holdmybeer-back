@@ -8,3 +8,4 @@ from .tapserializer import TapSerializer, TapSerializerEx
 from .pubserializer import PubSerializer
 from .secretsserializer import SecretsSerializer
 from .pubgalleryserializer import PubGallerySerializer
+from .userserializer import UserSerializer

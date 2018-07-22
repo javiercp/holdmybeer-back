@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^photos/$', views.PubGalleryList.as_view(), name='gallery-list'),
     url(r'^photos/(?P<pk>[0-9]+)/$', views.PubGalleryDetail.as_view(), name='gallery-detail'),
     url(r'^secrets/$', views.SecretsDetail.as_view(), name='secrets-info'),
+    url(r'^user/$', views.UserAuthDetail.as_view(), name='user-auth-info'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

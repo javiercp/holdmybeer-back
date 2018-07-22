@@ -9,3 +9,4 @@ from .pubviews import PubDetail
 from .rootview import api_root
 from .secretsviews import SecretsDetail
 from .pubgalleryviews import PubGalleryList, PubGalleryDetail
+from .userviews import UserAuthDetail

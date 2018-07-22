@@ -19,4 +19,5 @@ def api_root(request, format=None):
         'taps-expanded': reverse('tap-list-ex', request=request, format=format),
         'pub-info': reverse('pub-info', request=request, format=format),
         'pub-gallery': reverse('gallery-list', request=request, format=format),
+        'user-auth-info': reverse('user-auth-info', request=request, format=format),
     })
